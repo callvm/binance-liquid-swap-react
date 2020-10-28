@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Dashboard from './models/Dashboard'
+import Footer from './models/Footer'
+import { Spinner } from 'react-bootstrap';
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    const [results, setResults] = useState(null)
+
+    useEffect(() => {
+        axios
+            .get('http://144.91.117.14:3001/pools')
+            .then(result => setResults(result.data))
+    }, [])
+
+    if (results){
+        return (
+            <>
+                <Dashboard data={results}/>
+                <Footer/>
+            </>
+        )
+    } else {
+        return (
+            <div style={{top : '40%', left: '50%', position: 'absolute'}}>
+            <Spinner animation="border" variant="primary" />
+            </div>
+        )
+    }
 }
 
-export default App;
+export default App

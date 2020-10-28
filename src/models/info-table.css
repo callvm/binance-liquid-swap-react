@@ -1,0 +1,49 @@
+.info-table tr, .info-table td, .info-table thead, .info-table tbody, th{
+    color: #b6b6b6;
+    background-color:transparent;
+    font-weight: 500;
+    /* border: none; */
+}
+
+.table td, .table th{
+    border-bottom: 1px solid  rgb(64, 68, 79);
+    text-align: right;
+}
+
+.table td:first-child, .table th:first-child, .table:first-child{
+    border-bottom: 1px solid  rgb(64, 68, 79);
+    text-align: left;
+}
+
+.table{
+    border: none;
+    width: 100%;
+}
+
+.table thead th {
+    border-bottom: 1px solid  rgb(64, 68, 79);
+    border-top: none;
+    width: 25%;
+}
+
+.table-div{
+    padding: 20px;
+    margin-top: 40px;
+    margin-right: 30px;
+    margin-left: 30px;
+    border: 1px solid rgb(64, 68, 79);
+    border-radius: 20px;
+    background-color: #1e2127;
+
+}
+
+.table-heading{
+    text-align: left;
+    margin-left: 40px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+.table-hover tbody tr:hover{
+    background-color:transparent;
+}
