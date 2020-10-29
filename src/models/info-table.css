@@ -1,5 +1,5 @@
 .info-table tr, .info-table td, .info-table thead, .info-table tbody, th{
-    color: #b6b6b6;
+    color: #cccccc;
     background-color:transparent;
     font-weight: 500;
     /* border: none; */
@@ -8,6 +8,7 @@
 .table td, .table th{
     border-bottom: 1px solid  rgb(64, 68, 79);
     text-align: right;
+    vertical-align: middle;
 }
 
 .table td:first-child, .table th:first-child, .table:first-child{
@@ -23,7 +24,7 @@
 .table thead th {
     border-bottom: 1px solid  rgb(64, 68, 79);
     border-top: none;
-    width: 25%;
+    /* width: 20%; */
 }
 
 .table-div{
@@ -47,3 +48,16 @@
 .table-hover tbody tr:hover{
     background-color:transparent;
 }
+
+.coin-total{
+    font-size: 13px;
+    font-weight: 400;
+    text-align: right;
+    margin-bottom: 0px;
+    color: #b6b6b6;
+
+}
+
+.recharts-wrapper {
+    margin : 0 auto;
+  }

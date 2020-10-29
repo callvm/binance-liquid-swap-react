@@ -1,18 +1,26 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './custom-card.css'
 import { Card } from 'react-bootstrap';
+import Arrow from './Arrow'
 
 const CustomCard = ({ data }) => {
+
+    let chart = `/chart/${data.name.replace('/', '')}`
+    let stats = `/stats/${data.name.replace('/', '')}`
 
     let colorCell = (number) => {
         let num = (Number(number) * 100).toFixed(2)
         if (num > 0) {
             return (
-                <span style={{color : "green"}}>{num}%</span>
+                <span style={{ color: "green" }}>
+                    <Arrow color='green' />{num}%
+                </span>
             )
         } else {
             return (
-                <span style={{color : "red"}}>{num}%</span>
+                <span style={{ color: "red" }}>
+                    <Arrow color='red' />{Math.abs(num)}%
+                </span>
             )
         }
     }
@@ -26,15 +34,15 @@ const CustomCard = ({ data }) => {
                 <p className="perc">{colorCell(data.daily)}</p>
                 <p id="weekly">Weekly</p>
                 <p className="perc">{colorCell(data.weekly)}</p>
-                <hr />
+                <hr style={{ marginBottom: "6px" }} />
                 <table>
                     <tbody>
                         <tr>
                             <td className="link-left">
-                                <a href="#">Chart</a>
+                                <a href={chart}>Chart</a>
                             </td>
                             <td className="link-right">
-                                <a href="#">Stats</a>
+                                <a href={stats}>Stats</a>
                             </td>
                         </tr>
                     </tbody>

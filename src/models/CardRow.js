@@ -13,11 +13,13 @@ const CardRow = ({ data }) => {
                 <h1>Binance Liquid Stats</h1>
                 <h3>In-depth pool statistics</h3>
                 <hr />
+                
                 <Row xs={1} md={4} lg={6} className="justify-content-md-center" style={{ paddingTop: "20px" }}>
                     {data[data.length - 1].pools.map(pool => {
                         return <CustomCard key={pool.name} data={pool} />
                     })}
                 </Row>
+                
             </>
         )
     } else {

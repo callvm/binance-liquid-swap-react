@@ -1,33 +1,26 @@
-import Dashboard from './models/Dashboard'
-import Footer from './models/Footer'
-import { Spinner } from 'react-bootstrap';
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import Home from './Home'
+import {
+    BrowserRouter as Router,
+    Switch, Route
+} from "react-router-dom"
 
 const App = () => {
 
-    const [results, setResults] = useState(null)
-
-    useEffect(() => {
-        axios
-            .get('http://144.91.117.14:3001/pools')
-            .then(result => setResults(result.data))
-    }, [])
-
-    if (results){
         return (
             <>
-                <Dashboard data={results}/>
-                <Footer/>
+                <Router>
+                    <Switch>
+                        <Route path="/test">
+                            <p>Test</p>
+                        </Route>
+                        <Route path="/">
+                            <Home/>
+                        </Route>
+                    </Switch>
+                </Router>
             </>
         )
-    } else {
-        return (
-            <div style={{top : '40%', left: '50%', position: 'absolute'}}>
-            <Spinner animation="border" variant="primary" />
-            </div>
-        )
-    }
+   
 }
 
 export default App

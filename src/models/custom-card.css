@@ -1,58 +1,82 @@
-.custom-card{
+.custom-card {
     padding: 10px;
     margin: 10px;
     border-radius: 10px 10px 10px 10px;
     background-color: #1e2127;
     border: 1px solid rgb(64, 68, 79);
     transition: background-color 0.4s, translate 0.5s;
-    /* box-shadow: 2px 2px 4px 2px #c3c3c347; */
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
 }
 
-.custom-card:hover{
-    background-color:rgb(47 52 68 / 30%);
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.custom-card:hover {
+    background-color: rgb(47 52 68 / 30%);
     transform: translate(0px, -20px);
 }
 
-p, h4{
+p, h4 {
     text-align: center;
 }
 
-h4{
+h4 {
     margin: 16px 0px 0px 0px;
     font-size: 22px;
     font-weight: 400;
     color: #b6b6b6;
 }
 
-a{
+a {
     color: rgb(61, 104, 163);
     font-weight: 500;
 }
 
-p{
+p {
     margin-bottom: 0.5rem;
 }
 
-.perc{
+.perc {
     color: green;
-    font-weight: 700;
+    font-weight: 500;
+    font-size: 15px;
 }
 
-#daily, #weekly{
+#daily, #weekly {
     font-size: 15px;
     color: #888888;
-    font-weight: 500;
+    font-weight: 400;
 }
 
-.link-left{
+.link-left {
     padding-left: 10px;
 }
 
-.link-right{
+.link-right {
     padding-right: 10px;
     text-align: right;
 }
 
-hr{
+hr {
     background-color: rgb(64, 68, 79);
 }
