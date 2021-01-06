@@ -5,8 +5,8 @@ import Arrow from './Arrow'
 
 const CustomCard = ({ data }) => {
 
-    let chart = `/chart/${data.name.replace('/', '')}`
-    let stats = `/stats/${data.name.replace('/', '')}`
+    let chart = `/chart/${data.name.replace('/', '-')}`
+    let stats = `/stats/${data.name.replace('/', '-')}`
 
     let colorCell = (number) => {
         let num = (Number(number) * 100).toFixed(2)
@@ -27,26 +27,28 @@ const CustomCard = ({ data }) => {
 
     return (
         <>
-            <Card className="custom-card">
-                <h4>{data.name}</h4>
-                <hr />
-                <p id="daily">Daily</p>
-                <p className="perc">{colorCell(data.daily)}</p>
-                <p id="weekly">Weekly</p>
-                <p className="perc">{colorCell(data.weekly)}</p>
-                <hr style={{ marginBottom: "6px" }} />
-                <table>
-                    <tbody>
-                        <tr>
-                            <td className="link-left">
-                                <a href={chart}>Chart</a>
-                            </td>
-                            <td className="link-right">
-                                <a href={stats}>Stats</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <Card className="custom-card" style={{ cursor: 'pointer' }}>
+                
+                    <h4>{data.name}</h4>
+                    <hr />
+                    <p id="daily">Daily</p>
+                    <p className="perc">{colorCell(data.daily)}</p>
+                    <p id="weekly">Weekly</p>
+                    <p className="perc">{colorCell(data.weekly)}</p>
+                    <hr style={{ marginBottom: "6px" }} />
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td className="link-left">
+                                    <a href={chart}>Chart</a>
+                                </td>
+                                <td className="link-right">
+                                    <a href={stats}>Stats</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+               
             </Card>
         </>
     )

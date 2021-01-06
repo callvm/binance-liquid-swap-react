@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './info-table.css'
-import { Table } from 'react-bootstrap';
+import { Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import SevenDayChart from './SevenDayChart'
 import Arrow from './Arrow'
 
 const InfoTable = ({ data }) => {
-    
-    let refreshed = new Date(data[data.length - 1].date)
+
+    let refreshed = new Date(data.date)
     let now = new Date()
     let dif = ((now - refreshed) / 60000).toFixed(0)
 
@@ -16,7 +16,7 @@ const InfoTable = ({ data }) => {
                 <h4 className="table-heading">Pool Summary</h4>
                 <div className="table-div">
 
-                    <Table hover className="info-table ">
+                    <Table hover className="info-table">
                         <thead>
                             <tr>
                                 <th className="table-left">Name</th>
@@ -28,7 +28,7 @@ const InfoTable = ({ data }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data[data.length - 1].pools.map(pool => {
+                            {data.pools.map(pool => {
 
                                 let total = Number(pool.coins[0].amount) + Number(pool.coins[1].amount)
 
@@ -37,14 +37,14 @@ const InfoTable = ({ data }) => {
                                     if (num > 0) {
                                         return (
                                             <span style={{ color: "green" }}>
-                                                <Arrow color='green'/>
+                                                <Arrow color='green' />
                                                 {num}%
                                             </span>
                                         )
                                     } else {
                                         return (
                                             <span style={{ color: "red" }}>
-                                                <Arrow color='red'/>
+                                                <Arrow color='red' />
                                                 {Math.abs(num)}%
                                             </span>
                                         )
@@ -67,7 +67,7 @@ const InfoTable = ({ data }) => {
                                         </td>
                                         <td>{colorCell(pool.daily)}</td>
                                         <td>{colorCell(pool.weekly)}</td>
-                                        <td><SevenDayChart/></td>
+                                        <td><SevenDayChart key={pool.name} data={pool.sevenDayTrend}/></td>
                                     </tr>
                                 )
                             })}

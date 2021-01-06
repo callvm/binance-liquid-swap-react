@@ -6,7 +6,7 @@ h1 {
 }
 
 html, body {
-    background-color: rgb(34, 36, 42);
+
 }
 
 h3 {
@@ -22,19 +22,17 @@ h3 {
     border-radius: 0px;
 }
 
-.color-div {
+.color-div-blue, .color-div-pink {
     right: 0px;
     pointer-events: none;
     height: 200vh;
     mix-blend-mode: color;
-    /* background: radial-gradient(50% 50% at 50% 50%, rgba(255, 0, 123, 0.308) 0%, rgba(255, 255, 255, 0) 100%); */
     position: absolute;
     top: 0px;
     left: 0px;
-    z-index: 9999;
+    z-index: 1;
     transform: translateY(-110vh);
     max-width: 100vw !important;
-    background-image: radial-gradient(50% 50% at 50% 50%, rgba(0, 132, 255, 0.233) 0%, rgba(255, 255, 255, 0) 100%);
     background-position-x: initial;
     background-position-y: initial;
     background-size: initial;
@@ -43,6 +41,14 @@ h3 {
     background-clip: initial;
     background-color: initial;
     border-radius: 0px;
+}
+
+.color-div-blue{
+    background-image: radial-gradient(50% 50% at 50% 50%, rgba(0, 132, 255, 0.233) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.color-div-pink{
+    background-image: radial-gradient(50% 50% at 50% 50%, rgba(247, 0, 255, 0.233) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .footer {

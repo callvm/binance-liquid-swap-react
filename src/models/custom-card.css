@@ -1,39 +1,13 @@
 .custom-card {
     padding: 10px;
-    margin: 10px;
-    border-radius: 10px 10px 10px 10px;
-    background-color: #1e2127;
-    border: 1px solid rgb(64, 68, 79);
-    transition: background-color 0.4s, translate 0.5s;
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
-}
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 
 .custom-card:hover {
     background-color: rgb(47 52 68 / 30%);
-    transform: translate(0px, -20px);
 }
 
 p, h4 {
@@ -42,8 +16,8 @@ p, h4 {
 
 h4 {
     margin: 16px 0px 0px 0px;
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 500;
     color: #b6b6b6;
 }
 
@@ -58,12 +32,14 @@ p {
 
 .perc {
     color: green;
+    cursor: pointer;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #daily, #weekly {
     font-size: 15px;
+    cursor: pointer;
     color: #888888;
     font-weight: 400;
 }

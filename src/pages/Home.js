@@ -1,10 +1,11 @@
-import Dashboard from './models/Dashboard'
-import Footer from './models/Footer'
+import Dashboard from '../models/Dashboard'
+
+import Footer from '../models/Footer'
 import { Spinner } from 'react-bootstrap';
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const Home = () => {
+const Home = ({toggleTheme}) => {
 
     const [results, setResults] = useState(null)
 
@@ -16,7 +17,8 @@ const Home = () => {
 
     if (results) {
         return (
-            <>
+            <>  
+                <button onClick={() => toggleTheme()}>Test</button>
                 <Dashboard data={results} />
                 <Footer />
             </>

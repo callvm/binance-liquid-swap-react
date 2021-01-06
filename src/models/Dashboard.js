@@ -7,7 +7,7 @@ import InfoTable from './InfoTable'
 const Dashboard = ({ data }) => {
     return (
         <>
-            <div className="color-div" />
+            <div className="color-div-blue" />
             <Jumbotron>
                 <Container>
                     <CardRow data={data} />

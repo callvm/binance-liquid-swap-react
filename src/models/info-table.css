@@ -30,17 +30,13 @@
 .table-div{
     padding: 20px;
     margin-top: 40px;
-    margin-right: 30px;
-    margin-left: 30px;
-    border: 1px solid rgb(64, 68, 79);
-    border-radius: 20px;
-    background-color: #1e2127;
+    border-radius: 6px;
 
 }
 
 .table-heading{
     text-align: left;
-    margin-left: 40px;
+    margin-left: 10px;
     margin-top: 30px;
     margin-bottom: 0px;
 }
@@ -60,4 +56,8 @@
 
 .recharts-wrapper {
     margin : 0 auto;
+  }
+
+  .info-tooltip:hover{
+      
   }
