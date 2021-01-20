@@ -1,11 +1,11 @@
 import Dashboard from '../models/Dashboard'
-
+import Header from '../models/Header'
 import Footer from '../models/Footer'
 import { Spinner } from 'react-bootstrap';
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const Home = ({toggleTheme}) => {
+const Home = ({ toggleTheme, theme }) => {
 
     const [results, setResults] = useState(null)
 
@@ -17,10 +17,11 @@ const Home = ({toggleTheme}) => {
 
     if (results) {
         return (
-            <>  
-                <button onClick={() => toggleTheme()}>Test</button>
-                <Dashboard data={results} />
-                <Footer />
+            <>
+                <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr' }}>
+                    <Header toggleTheme={toggleTheme} theme={theme}/>
+                    <Dashboard data={results} />           
+                </div>
             </>
         )
     } else {

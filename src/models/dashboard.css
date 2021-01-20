@@ -5,8 +5,8 @@ h1 {
     color: #ffffff;
 }
 
-html, body {
-
+html, body, p, h1, h2, h3, a {
+    font-family: "Inter", "system-ui";
 }
 
 h3 {
@@ -43,11 +43,7 @@ h3 {
     border-radius: 0px;
 }
 
-.color-div-blue{
-    background-image: radial-gradient(50% 50% at 50% 50%, rgba(0, 132, 255, 0.233) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.color-div-pink{
+.color-div-pink {
     background-image: radial-gradient(50% 50% at 50% 50%, rgba(247, 0, 255, 0.233) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
@@ -77,4 +73,34 @@ h3 {
     margin: 0px;
     font-weight: 300;
     font-size: 14px;
+}
+
+.header-div {
+    background-image: linear-gradient(193.68deg, rgb(27, 28, 34) 0.68%, rgb(0, 0, 0) 100.48%);
+    height: 100vh;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    position: sticky;
+    top: 0px;
+    z-index: 9999;
+}
+
+.header-div-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.header-div-inner-top{
+    margin-top: 1.5rem;
+    display: grid;
+    grid-auto-rows: auto;
+    row-gap: 2rem;
+}
+
+.header-div-inner-bottom{
+    margin-bottom: 4rem;
+    display: grid;
+    grid-auto-rows: auto;
+    row-gap: 0.5rem;
 }

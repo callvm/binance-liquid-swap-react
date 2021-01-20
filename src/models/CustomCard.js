@@ -8,6 +8,10 @@ const CustomCard = ({ data }) => {
     let chart = `/chart/${data.name.replace('/', '-')}`
     let stats = `/stats/${data.name.replace('/', '-')}`
 
+    let weeklyAverage = 0
+    data.sevenDayTrend.forEach(day => weeklyAverage += day.amount)
+    weeklyAverage /= 7
+
     let colorCell = (number) => {
         let num = (Number(number) * 100).toFixed(2)
         if (num > 0) {
@@ -34,7 +38,7 @@ const CustomCard = ({ data }) => {
                     <p id="daily">Daily</p>
                     <p className="perc">{colorCell(data.daily)}</p>
                     <p id="weekly">Weekly</p>
-                    <p className="perc">{colorCell(data.weekly)}</p>
+                    <p className="perc">{colorCell(weeklyAverage)}</p>
                     <hr style={{ marginBottom: "6px" }} />
                     <table>
                         <tbody>

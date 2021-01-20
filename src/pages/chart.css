@@ -43,3 +43,8 @@
     padding-left: 10px;
     cursor: pointer;
 }
+.chart-avg{
+    color: rgb(152, 155, 163);
+    padding-left: 10px;
+    font-size: 14px;
+}

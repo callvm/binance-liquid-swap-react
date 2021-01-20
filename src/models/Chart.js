@@ -62,9 +62,12 @@ const Chart = ({ type, data }) => {
         let parsedData = []
 
         if (type === 'apy') {
+            let total = 0
             parsedData = data.slice(0, amount).reverse().map(item => {
+                total += item.amount
                 return { 'APY': Number((item.amount * 100).toFixed(2)), 'date': item.time, 'coins': item.coins }
             })
+            parsedData.total = (total / amount)
             setCurrentData(parsedData)
         }
         if (type === 'liquidity') {
@@ -94,6 +97,7 @@ const Chart = ({ type, data }) => {
                     <button class='chart-btn' onClick={() => loadDataForDays(100)}>Max</button>
                     <button class='chart-btn' onClick={() => loadDataForDays(30)}>30</button>
                     <button class='chart-btn' onClick={() => loadDataForDays(7)}>7</button>
+                    <span class="chart-avg">Average: {(currentData.total * 100).toFixed(2)} % ({days} days)</span>
                 </div>
                 <BarChart
                     width={500}
@@ -108,6 +112,7 @@ const Chart = ({ type, data }) => {
                     <YAxis />
                     <Bar dataKey="APY" fill="rgb(255, 255, 255, 0.5)" />
                 </BarChart>
+
             </div>
         )
     } else if (type === 'liquidity') {
@@ -123,7 +128,6 @@ const Chart = ({ type, data }) => {
 
         })
         largest = (largest).toFixed(0)
-        console.log(largest)
 
         return (
 
@@ -131,12 +135,12 @@ const Chart = ({ type, data }) => {
                 <h4 className="chart-heading">{days} day Liquidity</h4>
                 <hr />
                 <div style={{ padding: '0px 0px 20px 10px' }}>
-                    
-                        <button class='chart-btn' onClick={() => loadDataForDays(100)}>Max</button>
-                        <button class='chart-btn' onClick={() => loadDataForDays(30)}>30</button>
-                        <button class='chart-btn' onClick={() => loadDataForDays(7)}>7</button>
-                   
-                    
+
+                    <button class='chart-btn' onClick={() => loadDataForDays(100)}>Max</button>
+                    <button class='chart-btn' onClick={() => loadDataForDays(30)}>30</button>
+                    <button class='chart-btn' onClick={() => loadDataForDays(7)}>7</button>
+
+
                 </div>
                 <LineChart
                     width={500}

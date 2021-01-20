@@ -20,7 +20,7 @@ const InfoTable = ({ data }) => {
                         <thead>
                             <tr>
                                 <th className="table-left">Name</th>
-                                <th>Total</th>
+                                <th>USD Total</th>
                                 <th>Coins</th>
                                 <th>Daily</th>
                                 <th>Weekly</th>
@@ -30,7 +30,7 @@ const InfoTable = ({ data }) => {
                         <tbody>
                             {data.pools.map(pool => {
 
-                                let total = Number(pool.coins[0].amount) + Number(pool.coins[1].amount)
+                                let total = Number(pool.usdValue)
 
                                 let colorCell = (number) => {
                                     let num = (Number(number) * 100).toFixed(2)
@@ -54,6 +54,9 @@ const InfoTable = ({ data }) => {
                                 let formatNumber = (num) => {
                                     return num.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                                 }
+                                let weeklyAverage = 0
+                                pool.sevenDayTrend.forEach(day => weeklyAverage += day.amount)
+                                weeklyAverage /= 7
 
                                 return (
                                     <tr key={pool.name}>
@@ -66,7 +69,7 @@ const InfoTable = ({ data }) => {
                                             </div>
                                         </td>
                                         <td>{colorCell(pool.daily)}</td>
-                                        <td>{colorCell(pool.weekly)}</td>
+                                        <td>{colorCell(weeklyAverage)}</td>
                                         <td><SevenDayChart key={pool.name} data={pool.sevenDayTrend}/></td>
                                     </tr>
                                 )

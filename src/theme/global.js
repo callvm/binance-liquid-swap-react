@@ -27,8 +27,14 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.background};
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.textColor};
     transition: background-color 0.4s;
+  }
+  h1, h3, h4, th, td, .info-table tr, .info-table td, .info-table thead, .info-table tbody, th, .coin-total, .last-checked{
+    color: ${({ theme }) => theme.textColor};
+  }
+  .color-div-blue {
+    background-image: ${({ theme }) => theme.colorDiv};
   }
   .custom-card{
     border: ${({ theme }) => theme.border};

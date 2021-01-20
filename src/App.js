@@ -35,7 +35,7 @@ const App = () => {
                         <Stats />
                     </Route>
                     <Route path="/">
-                        <Home toggleTheme={toggleTheme} />
+                        <Home toggleTheme={toggleTheme} theme={theme}/>
                     </Route>
                 </Switch>
             </Router>

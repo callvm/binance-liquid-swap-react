@@ -7,6 +7,9 @@ import axios from 'axios'
 
 const Charts = () => {
 
+    const formatTime = (time) => {
+        return time.substr(0, time.length - 5).replace('T', ' ')
+    }
 
     const coinName = useParams().id.replace('-', '/')
     const [data, setData] = useState([])
@@ -20,6 +23,7 @@ const Charts = () => {
             })
             .then(response => {
                 setData(response.data)
+                console.log(response.data)
             })
             .catch(err => console.log(err))
     }, [])
@@ -27,12 +31,15 @@ const Charts = () => {
     return (
         <>
             <div className="color-div-pink" />
+            
             <div className="chart-div">
+                
                 <Container>
                     <span class='back-arrow' onClick={() => window.location = '/'}>{'Home'}</span>
                     <span class='back-arrow' onClick={() => window.location = '/stats/' + coinName.replace('/','-')}>{'Stats'}</span>
                     <h1 className="chart-title">{coinName} Charts</h1>
                     <hr />
+                    
                     <Row>
                         <Col style={{zIndex: 4}}>
                             <Chart type='apy' data={data} />
